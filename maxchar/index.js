@@ -1,10 +1,36 @@
-// --- Directions
-// Given a string, return the character that is most
-// commonly used in the string.
-// --- Examples
-// maxChar("abcccccccd") === "c"
-// maxChar("apple 1231111") === "1"
+function maxChar(str) {
+    const newArr=[];
 
-function maxChar(str) {}
+    for (let i = 0; i < str.length; i++) {
+        const word = str[i];
+        
+        // Check if the word is not already in the new array
+        if (!newArr.includes(word)) {
+            newArr.push(word); // Add the word if it's not already present
+        }
+    }
 
+    const num=[];
+    for (let i=0;i<newArr.length;i++){
+        let x=0;
+        for (let j=0;j<str.length;j++){
+            if (newArr[i]==str[j]){
+                x=x+1;
+            }
+        }
+        num.push(x);
+    }
+    const maxNumber = Math.max(...num);
+    let res=0;
+    for (let i=0;i<num.length;i++){
+        if (maxNumber==num[i]){
+            res=i;
+            break;
+        }
+    }
+
+    return newArr[res];
+
+}
+console.log(maxChar("abcccccccd"));
 module.exports = maxChar;

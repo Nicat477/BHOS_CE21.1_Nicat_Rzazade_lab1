@@ -8,6 +8,10 @@
 // Example:
 //   fib(4) === 3
 
-function fib(n) {}
+function fib(n) {
+    if (n <= 1) return n; // Base cases: F(0) = 0, F(1) = 1
+    return fib(n - 1) + fib(n - 2);
 
+}
+console.log(fib(8))
 module.exports = fib;

@@ -16,6 +16,9 @@ class Queue {
     remove() {
         return this.data.pop();
     }
+    isEmpty() {
+        return this.data.length === 0; 
+    }
 }
 
 module.exports = Queue;

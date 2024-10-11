@@ -15,6 +15,17 @@
 //     [11, 16, 15, 6],
 //     [10,  9,  8, 7]]
 
-function matrix(n) {}
-
+function matrix(n) {
+    let mat=[];
+    const getRandomInt = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
+    
+    for (let i=0;i<n;i++){
+        mat[i]=[];
+        for (let j=0;j<n;j++){
+            mat[i][j]=getRandomInt(1, 100);
+        }
+    }
+    return mat
+}
+console.log(matrix(4))
 module.exports = matrix;

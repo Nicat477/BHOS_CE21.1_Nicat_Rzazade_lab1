@@ -1,10 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Example</title>
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g=" crossorigin="anonymous"></script>
 </head>
 <body>
   <h1>Click the button</h1>
-  <button>Me!</button>
+  <button id="myButton">Me!</button>
   <script>
-    
+      const Events = require('./index.js'); // Ensure you have the correct path
+
+      const eventSystem = new Events();
+
+      // Register a click event
+      eventSystem.on('buttonClicked', () => {
+          alert('Button was clicked!');
+      });
+
+      // Set up the button click listener
+      document.getElementById('myButton').addEventListener('click', () => {
+          eventSystem.trigger('buttonClicked'); // Trigger the event
+      });
   </script>
 </body>
